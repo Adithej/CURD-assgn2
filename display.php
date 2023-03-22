@@ -26,7 +26,7 @@ require("connection.php");
     <div class="container">
         <button class="btn btn-primary my-5"><a href="product.php" class="text-light">Add Product</a></button>
         <table class="table">
-            <!-- <div class="dropdown">
+            <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
                     Categories
@@ -41,23 +41,23 @@ require("connection.php");
                     <li><button class="btn" value="Footwear"><a class="dropdown-item"
                                 href="categories.php">Footwear</a></button></li>
                 </ul>
-            </div> -->
-            <label for="category">Choose a category:</label>
+            </div>
+            <!-- <label for="category">Choose a category:</label>
             <select name="category" id="category">
                 <option value="electronics">Electronics</option>
                 <option value="footwear">Footwear</option>
                 <option value="clothing">Clothing</option>
                 <option value="gatgets">Gadgets</option>
             </select>
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Operations</th>
-                </tr>
+            <thead> -->
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Operations</th>
+            </tr>
             </thead>
             <tbody>
 
