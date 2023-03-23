@@ -31,7 +31,11 @@ require("connection.php");
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
     <div class="container">
-        <button class="btn btn-primary my-5"><a href="product.php" class="text-light">Add Product</a></button>
+        <div class="p-2 text-center bg-light">
+            <h1 class="mb-3">CRUD Store </h1>
+        </div>
+        <button class="btn btn-primary my-5"><a href="product.php" class="text-light text-decoration-none">Add
+                Product</a></button>
         <table class="table">
             <div class="dropdown">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -40,6 +44,8 @@ require("connection.php");
                 </a>
 
                 <ul class="dropdown-menu">
+                    <li><button class="btn" value="all"><a href="index.php" class="dropdown-item ">All</a></button>
+                    </li>
                     <li><button onclick="showCategory('Electronics')" class="btn" value="Electronics"><a
                                 class="dropdown-item ">Electronics</a></button>
                     </li>
@@ -63,14 +69,14 @@ require("connection.php");
                 <?php
                 $queries = array();
                 parse_str($_SERVER['QUERY_STRING'], $queries);
-                echo $_SERVER['QUERY_STRING'];
+                // echo $_SERVER['QUERY_STRING'];
                 $queries = array();
                 parse_str($_SERVER['QUERY_STRING'], $queries);
                 echo $queries["category"];
-                $sql = "Select * from `Product`";
+                $sql = "Select * from `products`";
                 if ($queries["category"]) {
                     $cat = $queries["category"];
-                    $sql = "Select * from `Product` where category='$cat'";
+                    $sql = "Select * from `products` where category='$cat'";
                 }
                 $result = mysqli_query($con, $sql);
                 if ($result) {
@@ -88,8 +94,8 @@ require("connection.php");
             <td>' . $description . '</td>
             <td>' . $price . '</td>
             <td>
-        <button class="btn btn-primary"><a href="update.php? updateid=' . $id . ' " class="text-light">Update</a></button>
-        <button class="btn btn-danger"><a href="delete.php? deleteid=' . $id . ' " class="text-light">Delete</a></button>
+        <button class="btn btn-primary"><a href="update.php? updateid=' . $id . ' " class="text-light text-decoration-none">Update</a></button>
+        <button class="btn btn-danger"><a href="delete.php? deleteid=' . $id . ' " class="text-light text-decoration-none">Delete</a></button>
     </td>
           </tr>
           <tr>';

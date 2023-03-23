@@ -1,7 +1,7 @@
 <?php
 require("connection.php");
 $id = $_GET['updateid'];
-$sql = "Select * from `Product` where id=$id";
+$sql = "Select * from `products` where id=$id";
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 $name = $row['name'];
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $sql = "update `Product` set id=$id,name='$name',category='$category',description='$description',price=$price where id=$id";
+  $sql = "update `products` set id=$id,name='$name',category='$category',description='$description',price=$price where id=$id";
 
   $result = mysqli_query($con, $sql);
   if ($result) {

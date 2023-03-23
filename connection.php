@@ -1,7 +1,7 @@
 <?php
-$con = new mysqli("localhost", "root","", "Crud");
+$con = new mysqli("localhost", "root", "", "crud");
 
-if(!$con) {
+if (!$con) {
     die(mysqli_error($con));
 }
 

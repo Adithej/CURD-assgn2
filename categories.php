@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 require("connection.php");
 
@@ -40,7 +40,7 @@ require("connection.php");
             <tbody>
 
                 <?php
-                $sql = "Select * from `Product` where category='Electronics'";
+                $sql = "Select * from `products` where category='Electronics'";
                 $result = mysqli_query($con, $sql);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -71,4 +71,4 @@ require("connection.php");
     </div>
 </body>
 
-</html>
+</html> -->
