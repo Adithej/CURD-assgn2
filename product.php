@@ -7,9 +7,10 @@ if (isset($_POST['submit'])) {
   $description = $_POST['description'];
   $price = $_POST['price'];
 
-  $sql = "insert into `products` (name, category,description,price) values('$name', '$category', '$description', $price)";
-
+  $sql = "insert into `products` (name,category,description,price) values('$name','$category', '$description', $price)";
+  $sql_cat = "insert into `categories` (category) values('$category')";
   $result = mysqli_query($con, $sql);
+  // $result_cat = mysqli_query($con, $sql_cat);
   if ($result) {
     // echo "data inserted sucessfully";
     header('location:index.php');

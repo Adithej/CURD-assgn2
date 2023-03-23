@@ -11,6 +11,7 @@ require("connection.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
@@ -55,6 +56,38 @@ require("connection.php");
                                 class="dropdown-item">Footwear</a></button></li>
                 </ul>
             </div>
+            <div>
+                <form action="" method="post">
+                    <select name="category" id="category" onchange="this.form.submit()">
+                        <option value="All">ALL</option>
+                        <?php
+                        $query = "Select * from `categories`";
+                        $run = mysqli_query($con, $query);
+                        while ($data = mysqli_fetch_array($run)) {
+                            echo "<option value='$data[1]'>$data[1]</option>";
+                        }
+
+                        ?>
+                    </select>
+                    <!-- <br>
+                    <input type="submit" value="submit" name="submitBtn">
+                    <br> -->
+                </form>
+                <?php
+                if (isset($_POST["category"])) {
+                    $cat = $_POST["category"];
+                    echo "You have selected " . $cat;
+                    echo "<script>
+                    function showCategory(str) {
+                        let params = new URLSearchParams(window.location.search);
+                        params.set('category', str);
+                        window.location.search = params;
+                    }
+                        showCategory($cat);
+                        </script>";
+                }
+                ?>
+            </div>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
@@ -79,7 +112,9 @@ require("connection.php");
                     $sql = "Select * from `products` where category='$cat'";
                 }
                 $result = mysqli_query($con, $sql);
+                // $result_cat = mysqli_query($con, $sql_cat);
                 if ($result) {
+                    // $row_cat = $row = mysqli_fetch_assoc($result_cat);
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
                         $name = $row['name'];
