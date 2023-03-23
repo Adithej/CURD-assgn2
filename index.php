@@ -16,6 +16,13 @@ require("connection.php");
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"
         integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script>
+        function showCategory(str) {
+            let params = new URLSearchParams(window.location.search);
+            params.set('category', str);
+            window.location.search = params;
+        }
+    </script>
     <title>Crud dispay</title>
 </head>
 
@@ -33,23 +40,15 @@ require("connection.php");
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><button class="btn" value="Electronics"><a class="dropdown-item "
-                                href="categories.php">Electronics</a></button>
+                    <li><button onclick="showCategory('Electronics')" class="btn" value="Electronics"><a
+                                class="dropdown-item ">Electronics</a></button>
                     </li>
-                    <li><button class="btn" value="Clothing"><a class="dropdown-item"
-                                href="categories.php">Clothing</a></button></li>
-                    <li><button class="btn" value="Footwear"><a class="dropdown-item"
-                                href="categories.php">Footwear</a></button></li>
+                    <li><button onclick="showCategory('Clothing')" class="btn" value="Clothing"><a
+                                class="dropdown-item">Clothing</a></button></li>
+                    <li><button onclick="showCategory('Footwear')" class="btn" value="Footwear"><a
+                                class="dropdown-item">Footwear</a></button></li>
                 </ul>
             </div>
-            <!-- <label for="category">Choose a category:</label>
-            <select name="category" id="category">
-                <option value="electronics">Electronics</option>
-                <option value="footwear">Footwear</option>
-                <option value="clothing">Clothing</option>
-                <option value="gatgets">Gadgets</option>
-            </select>
-            <thead> -->
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
@@ -62,7 +61,17 @@ require("connection.php");
             <tbody>
 
                 <?php
+                $queries = array();
+                parse_str($_SERVER['QUERY_STRING'], $queries);
+                echo $_SERVER['QUERY_STRING'];
+                $queries = array();
+                parse_str($_SERVER['QUERY_STRING'], $queries);
+                echo $queries["category"];
                 $sql = "Select * from `Product`";
+                if ($queries["category"]) {
+                    $cat = $queries["category"];
+                    $sql = "Select * from `Product` where category='$cat'";
+                }
                 $result = mysqli_query($con, $sql);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
