@@ -34,8 +34,10 @@ require("connection.php");
             class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline  my-5"><a
                 href="product.php" class="text-black-100 text-decoration-none">Add
                 Product</a></button>
-        <table class="table-auto w-full max-w-full mb-4 ">
-            <!-- <div class="relative">
+        <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <!-- <div class="relative">
                 <a class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline  my-5"
                     href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categories
@@ -65,65 +67,65 @@ require("connection.php");
                     </li>
                 </ul>
             </div> -->
-            <div>
-                <!-- <form action="" method="post"> -->
-                <select name="category" id="category" onchange="showCategory(event)">
-                    <option value="">Categories :</option>
-                    <?php
-                    $query = "Select * from `categories`";
-                    $run = mysqli_query($con, $query);
-                    while ($data = mysqli_fetch_array($run)) {
-                        echo "<option value='$data[1]'>$data[1]</option>";
-                    }
+                    <div>
+                        <!-- <form action="" method="post"> -->
+                        <select name="category" id="category" onchange="showCategory(event)">
+                            <option value="">Categories :</option>
+                            <?php
+                            $query = "Select * from `categories`";
+                            $run = mysqli_query($con, $query);
+                            while ($data = mysqli_fetch_array($run)) {
+                                echo "<option value='$data[1]'>$data[1]</option>";
+                            }
 
-                    ?>
-                </select>
-                <!-- <br>
+                            ?>
+                        </select>
+                        <!-- <br>
                     <input type="submit" value="submit" name="submitBtn">
                     <br> -->
-                <!-- </form> -->
-                <?php
-                if (isset($_POST["category"])) {
-                    $cat = $_POST["category"];
-                    echo "You have selected " . $cat;
-                }
-                ?>
-            </div>
-            <tr class="table-auto">
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Category</th>
-                <th scope="col">Description</th>
-                <th scope="col">Price</th>
-                <th scope="col">Operations</th>
-            </tr>
-            </thead>
-            <tbody>
+                        <!-- </form> -->
+                        <?php
+                        if (isset($_POST["category"])) {
+                            $cat = $_POST["category"];
+                            echo "You have selected " . $cat;
+                        }
+                        ?>
+                    </div>
+                    <tr class="table-auto">
+                        <th class="px-6 py-3" scope="col">#</th>
+                        <th class="px-6 py-3" scope="col">Name</th>
+                        <th class="px-6 py-3" scope="col">Category</th>
+                        <th class="px-6 py-3" scope="col">Description</th>
+                        <th class="px-6 py-3" scope="col">Price</th>
+                        <th class="px-6 py-3" scope="col">Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                <?php
-                $queries = array();
-                parse_str($_SERVER['QUERY_STRING'], $queries);
-                // echo $_SERVER['QUERY_STRING'];
-                $queries = array();
-                parse_str($_SERVER['QUERY_STRING'], $queries);
-                echo $queries["category"];
-                $sql = "Select * from `products`";
-                if ($queries["category"]) {
-                    $cat = $queries["category"];
-                    $sql = "Select * from `products` where category='$cat'";
-                }
-                $result = mysqli_query($con, $sql);
-                // $result_cat = mysqli_query($con, $sql_cat);
-                if ($result) {
-                    // $row_cat = $row = mysqli_fetch_assoc($result_cat);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id'];
-                        $name = $row['name'];
-                        $category = $row['category'];
-                        $description = $row['description'];
-                        $price = $row['price'];
+                    <?php
+                    $queries = array();
+                    parse_str($_SERVER['QUERY_STRING'], $queries);
+                    // echo $_SERVER['QUERY_STRING'];
+                    $queries = array();
+                    parse_str($_SERVER['QUERY_STRING'], $queries);
+                    echo $queries["category"];
+                    $sql = "Select * from `products`";
+                    if ($queries["category"]) {
+                        $cat = $queries["category"];
+                        $sql = "Select * from `products` where category='$cat'";
+                    }
+                    $result = mysqli_query($con, $sql);
+                    // $result_cat = mysqli_query($con, $sql_cat);
+                    if ($result) {
+                        // $row_cat = $row = mysqli_fetch_assoc($result_cat);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $id = $row['id'];
+                            $name = $row['name'];
+                            $category = $row['category'];
+                            $description = $row['description'];
+                            $price = $row['price'];
 
-                        echo '<tr>
+                            echo '<tr>
             <th scope="row">' . $id . '</th>
             <td>' . $name . '</td>
             <td>' . $category . '</td>
@@ -132,15 +134,16 @@ require("connection.php");
             <td>
         <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600"><a href="update.php? updateid=' . $id . ' " class="text-gray-100 text-decoration-none">Update</a></button>
         <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-red-600 text-white hover:bg-red-700"><a href="delete.php? deleteid=' . $id . ' " class="text-light text-decoration-none">Delete</a></button>
-    </td>
+            </td>
           </tr>
           <tr>';
+                        }
                     }
-                }
 
-                ?>
-            </tbody>
-        </table>
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
