@@ -29,50 +29,45 @@ if (isset($_POST['submit'])) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Product Page</title>
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100">
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script> -->
-  <div class="container my-5">
-    <form method="post">
+  <form method="post">
+    <fieldset>
+      <div class="mb-6">
+        <label for="disabledTextInput"
+          class="block mb-2 text-sm font-medium text-black-900 dark:text-black">Name</label>
+        <input type="text" id="text" placeholder="Name" name="name"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required>
+      </div>
+      <div class="mb-6">
+        <label for="disabledTextInput"
+          class="block mb-2 text-sm font-medium text-black-900 dark:text-black">Category</label>
+        <input type="text" id="text" placeholder="Category" name="category"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required>
+      </div>
+      <div class="mb-6">
+        <label for="disabledTextInput"
+          class="block mb-2 text-sm font-medium text-black-900 dark:text-black">Description</label>
+        <input type="text" id="text" placeholder="Description" name="description"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required>
+      </div>
+      <div class="mb-6">
+        <label for="disabledTextInput"
+          class="block mb-2 text-sm font-medium text-black-900 dark:text-black">Price</label>
+        <input type="text" id="text" placeholder="Price" name="price"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          required>
+      </div>
+      <button type="submit" name="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
       <fieldset>
-        <legend>Products</legend>
-        <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Name</label>
-          <input type="text"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
-            placeholder="Name" name="name">
-        </div>
-        <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Category</label>
-          <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
-            placeholder="Category" name="category">
-        </div>
-        <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Descriptiopn</label>
-          <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
-            placeholder="Description" name="description">
-        </div>
-        <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Price</label>
-          <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
-            placeholder="Price" name="price">
-        </div>
-        <button type="submit"
-          class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline  my-5"
-          name="submit">Submit</button>
-      </fieldset>
-    </form>
-  </div>
+  </form>
 </body>
 
 </html>
