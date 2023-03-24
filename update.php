@@ -52,23 +52,31 @@ if (isset($_POST['submit'])) {
         <legend>Products</legend>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Name</label>
-          <input type="text" class="form-control" placeholder="Name" name="name" value=<?php echo $name; ?>>
+          <input type="text"
+            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            placeholder="Name" name="name" value=<?php echo $name; ?>>
         </div>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Category</label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="Category" name="category"
-            value=<?php echo $category; ?>>
+          <input type="text" id="disabledTextInput"
+            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            placeholder="Category" name="category" value=<?php echo $category; ?>>
         </div>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Descriptiopn</label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="Description" name="description"
-            value=<?php echo $description; ?>>
+          <input type="text" id="disabledTextInput"
+            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            placeholder="Description" name="description" value=<?php echo $description; ?>>
         </div>
         <div class="mb-3">
           <label for="disabledTextInput" class="form-label">Price</label>
-          <input type="text" id="disabledTextInput" class="form-control" placeholder="Price" name="price" value=<?php echo $price; ?>>
+          <input type="text" id="disabledTextInput"
+            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            placeholder="Price" name="price" value=<?php echo $price; ?>>
         </div>
-        <button type="submit" class="btn btn-primary" name="submit">Update</button>
+        <button type="submit"
+          class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-black bg-blue hover:bg-blue-600"
+          name="submit">Update</button>
       </fieldset>
     </form>
   </div>
