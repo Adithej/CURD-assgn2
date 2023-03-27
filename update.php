@@ -8,6 +8,7 @@ $name = $row['name'];
 $category = $row['category'];
 $description = $row['description'];
 $price = $row['price'];
+$photo = $row['photo'];
 
 if (isset($_POST['submit'])) {
 
@@ -15,8 +16,9 @@ if (isset($_POST['submit'])) {
   $category = $_POST['category'];
   $description = $_POST['description'];
   $price = $_POST['price'];
+  $photo = $_POST['photo'];
 
-  $sql = "update `products` set id=$id,name='$name',category='$category',description='$description',price=$price where id=$id";
+  $sql = "update `products` set id=$id,name='$name',category='$category',description='$description',price=$price, photo='$photo' where id=$id";
 
   $result = mysqli_query($con, $sql);
   if ($result) {
@@ -36,49 +38,117 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Product Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <title>Display Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 </head>
 
-<body class="bg-light">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-  <div class="container my-5">
-    <form method="post">
+<body>
+  <div>
+    <form method="post" class="w-full max-w-lg">
       <fieldset>
-        <legend>Products</legend>
-        <div class="mb-3">
-          <label for="disabledTextInput" class="form-label">Name</label>
+        <legend class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+          Products</legend>
+        <div class="flex flex-wrap mx-3 mb-6">
+          <label for="disabledTextInput" class="form-label">Name of the Product</label>
           <input type="text"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             placeholder="Name" name="name" value=<?php echo $name; ?>>
         </div>
-        <div class="mb-3">
+        <div class="flex flex-wrap mx-3 mb-6">
           <label for="disabledTextInput" class="form-label">Category</label>
           <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             placeholder="Category" name="category" value=<?php echo $category; ?>>
         </div>
-        <div class="mb-3">
+        <div class="flex flex-wrap mx-3 mb-6">
           <label for="disabledTextInput" class="form-label">Descriptiopn</label>
           <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             placeholder="Description" name="description" value=<?php echo $description; ?>>
         </div>
-        <div class="mb-3">
+        <div class="flex flex-wrap mx-3 mb-6">
           <label for="disabledTextInput" class="form-label">Price</label>
           <input type="text" id="disabledTextInput"
-            class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             placeholder="Price" name="price" value=<?php echo $price; ?>>
+        </div>
+        <div class="flex flex-wrap mx-3 mb-6">
+          <label for="disabledTextInput" class="form-label">Image url</label>
+          <input type="text" id="disabledTextInput"
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            placeholder="Image" name="photo" value=<?php echo $photo; ?>>
         </div>
         <button type="submit"
           class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-black bg-blue hover:bg-blue-600"
           name="submit">Update</button>
       </fieldset>
     </form>
+  </div>
+  <div>
+    <h3>You would also like :</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">
+      <?php
+      // echo $category;
+      $sql = "Select * from `products` order by abs(500-$price)";
+      $result = mysqli_query($con, $sql);
+      if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+          $id = $row['id'];
+          $name = $row['name'];
+          $category = $row['category'];
+          $description = $row['description'];
+          $price = $row['price'];
+          $photo = $row['photo'];
+
+          echo '
+        
+                <div class="w-96">  
+                    <div class="shadow hover:shadow-lg transition duration-300 ease-in-out xl:mb-0 lg:mb-0 md:mb-0 mb-6 cursor-pointer group">
+                    <div class="overflow-hidden relative">
+                    <img class="w-full transition duration-700 ease-in-out group-hover:opacity-60" src=' . $photo . ' alt="image" />
+                    <div class="flex justify-center">
+                    <div class="absolute bottom-4 transition duration-500 ease-in-out opacity-0 group-hover:opacity-100">
+                        <a href="#" class="bg-gray-700 px-3 py-3 hover:bg-red-500 transition duration-300 ease-in-out">
+                            <i class="fas fa-shopping-cart transition duration-300 ease-in-out flex justify-center items-center text-gray-100"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 px-3 py-3 hover:bg-red-500 transition duration-300 ease-in-out">
+                            <i class="fas fa-random transition duration-300 ease-in-out flex justify-center items-center text-gray-100"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 px-3 py-3 hover:bg-red-500 transition duration-300 ease-in-out">
+                            <i class="fas fa-search transition duration-300 ease-in-out flex justify-center items-center text-gray-100"></i>
+                        </a>
+                        <a href="#" class="bg-gray-700 px-3 py-3 hover:bg-red-500 transition duration-300 ease-in-out">
+                            <i class="fas fa-heart transition duration-300 ease-in-out flex justify-center items-center text-gray-100"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="px-4 py-3 bg-white">
+                <a href="#" class=""><h1 class="text-gray-800 font-semibold text-lg hover:text-red-500 transition duration-300 ease-in-out">' . $name . '</h1></a>
+                <div class="flex py-2">
+                    <p class="mr-2 text-xs text-gray-600">' . $price . '</p>
+                        <p class="mr-2 text-xs text-red-600 ">' . $category . '</p>
+                </div>
+                <div class="flex">
+                    <div class="">
+                        <i class="fas fa-star text-yellow-400 text-xs"></i>
+                        <i class="fas fa-star text-yellow-400 text-xs"></i>
+                        <i class="fas fa-star text-yellow-400 text-xs"></i>
+                        <i class="fas fa-star text-yellow-400 text-xs"></i>
+                        <i class="far fa-star text-gray-400 text-xs"></i>
+                    </div>
+                    <div class="ml-2">
+                        <p class="text-gray-500 font-medium text-sm">' . $description . '</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>';
+        }
+      }
+
+      ?>
+    </div>
   </div>
 </body>
 
