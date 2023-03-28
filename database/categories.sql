@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 23, 2023 at 02:02 PM
+-- Generation Time: Mar 28, 2023 at 02:51 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,17 +29,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL,
-  `category` varchar(200) NOT NULL
+  `category` varchar(200) NOT NULL,
+  `slug` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `category`) VALUES
-(1, 'Clothing'),
-(2, 'Electronics'),
-(3, 'Footwear');
+INSERT INTO `categories` (`id`, `category`, `slug`) VALUES
+(1, 'Clothing', 'clothing'),
+(2, 'Electronics', 'electronics'),
+(3, 'Footwear', 'footwear');
+
+--
+-- Triggers `categories`
+--
+DELIMITER $$
+CREATE TRIGGER `update_category_slug` BEFORE INSERT ON `categories` FOR EACH ROW SET NEW.slug = LOWER(NEW.category)
+$$
+DELIMITER ;
 
 --
 -- Indexes for dumped tables

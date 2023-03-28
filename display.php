@@ -106,7 +106,7 @@ $photo = $row['photo'];
         <div class="grid grid-cols-2 md:grid-cols-6 gap-96">
             <?php
             // echo $category;
-            $sql = "Select * from `products` where category='$category'";
+            $sql = "Select * from `products` where category='$category' limit 5";
             $result = mysqli_query($con, $sql);
             if ($result) {
                 while ($row = mysqli_fetch_assoc($result)) {

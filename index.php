@@ -61,7 +61,8 @@ require("connection.php");
             $pageFirstResult = ($page - 1) * $resultsPerPage;
             // $sql = "Select * from `products`";
             $sql = 'SELECT * FROM products LIMIT ' . $pageFirstResult . ',' . $resultsPerPage;
-            if ($queries["category"]) {
+
+            if (isset($queries["category"])) {
                 $cat = $queries["category"];
                 $sql = "Select * from `products` where category='$cat'";
             }
@@ -99,12 +100,12 @@ require("connection.php");
             // }
             ?>
         </div>
-        <div class="ml-96">
+        <div class="flex justify-center items-center py-4">
             <?php
             // pagination
             for ($page = 1; $page <= $numberOfPages; $page++) {
                 // echo "test pagination 2";
-                echo '<div class="inline-flex mt-auto"><button class="px-4 py-2 text-sm font-medium text-white bg-blue-800  hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><a href="index.php?page=' . $page . '">' . $page . '</a></button></div>';
+                echo '<div class="inline-flex"><button class="px-4 py-2 text-sm font-medium text-white bg-blue-800  hover:bg-gray-900 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><a href="index.php?page=' . $page . '">' . $page . '</a></button></div>';
 
             }
 
