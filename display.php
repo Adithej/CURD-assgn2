@@ -45,6 +45,20 @@ $photo = $row['photo'];
 </head>
 
 <body>
+    <div class="header-2 mr-16 focus:outline-none rounded-full dark:focus:ring-blue-800">
+
+        <nav class="bg-white py-2 md:py-4">
+            <div class="container px-4 mx-auto md:flex md:items-center">
+                <div class="flex justify-between items-center focus:ring-4 ">
+                    <a href="index.php" class="font-bold text-4xl text-indigo-600">E-Shop</a>
+                    <button
+                        class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
+                        id="navbar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+    </div>
     <div method="post">
         <div>
             <?php
@@ -58,7 +72,7 @@ $photo = $row['photo'];
             $price = $row['price'];
             $photo = $row['photo'];
             echo '
-            <h1 class="mb-4 text-4xl  leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">Excellent Choice....</h1>
+            <h1 class="italic mb-4 text-xl  leading-none tracking-tight text-gray-900 md:text-2xl lg:text-xl dark:text-white">Excellent Choice....</h1>
             <div class="w-full h-screen flex justify-start ">
                 <div class="max-w-[75%]">  
                     <div class="shadow hover:shadow-lg transition duration-300 ease-in-out xl:mb-0 lg:mb-0 md:mb-0 mb-6 cursor-pointer group">
@@ -170,7 +184,7 @@ $photo = $row['photo'];
                 </div>
             </div>
             </div>
-        </div>';
+            </div>';
                 }
             }
 

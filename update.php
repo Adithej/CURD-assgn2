@@ -38,16 +38,31 @@ if (isset($_POST['submit'])) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Display Page</title>
+  <title>Update Page</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
 </head>
 
 <body>
+  <div class="header-2 mr-16 focus:outline-none rounded-full dark:focus:ring-blue-800">
+
+    <nav class="bg-white py-2 md:py-4">
+      <div class="container px-4 mx-auto md:flex md:items-center">
+
+        <div class="flex justify-between items-center focus:ring-4 ">
+          <a href="index.php" class="font-bold text-4xl text-indigo-600">E-Shop</a>
+          <button
+            class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 opacity-50 hover:opacity-75 md:hidden"
+            id="navbar-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+  </div>
   <div>
     <form method="post" class="w-full max-w-lg">
       <fieldset>
-        <legend class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
-          Products</legend>
+        <legend class="tracking-wide text-red-700 text-xl font-bold mb-2" for="grid-first-name">
+          Edit your Products here...</legend>
         <div class="flex flex-wrap mx-3 mb-6">
           <label for="disabledTextInput" class="form-label">Name of the Product</label>
           <input type="text"
@@ -85,7 +100,7 @@ if (isset($_POST['submit'])) {
     </form>
   </div>
   <div>
-    <h3>You would also like :</h3>
+    <h3 class="tracking-wide text-red-700 text-xl font-bold mb-2">You would also like :</h3>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 ">
       <?php
       // echo $category;
