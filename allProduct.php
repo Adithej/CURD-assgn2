@@ -32,7 +32,7 @@ require("connection.php");
         <div class="flex items-center justify-center py-4 md:py-8 flex-wrap">
             <button type="button" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"><a href="product.php">Add Product</a>
             </button>
-            <button type="button" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"><a href="allProduct.php">E-Shop</a>
+            <button type="button" class="text-blue-700 hover:text-white border border-blue-600 bg-white hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-full text-base px-5 py-2.5 text-center mr-3 mb-3 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:bg-gray-900 dark:focus:ring-blue-800"><a href="index.php">E-Shop</a>
             </button>
         </div>
 
@@ -58,7 +58,7 @@ require("connection.php");
 
             $pageFirstResult = ($page - 1) * $resultsPerPage;
             // $sql = "Select * from `products`";
-            $sql = 'SELECT * FROM products where popular_product=' . $popularProduct . ' IN (1) LIMIT ' . $pageFirstResult . ',' . $resultsPerPage;
+            $sql = 'SELECT * FROM products  LIMIT ' . $pageFirstResult . ',' . $resultsPerPage;
 
             if (isset($queries["category"])) {
                 $cat = $queries["category"];
