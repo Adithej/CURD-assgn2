@@ -97,7 +97,7 @@ $photo = $row['photo'];
             ?>
         </div>
     </div>
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+    <h1 class="mb-4 ml-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
         You might be interested in</h1>
     <div class="grid grid-cols-3 md:grid-cols-6 gap-96">
         <?php
@@ -171,7 +171,7 @@ $photo = $row['photo'];
     </div>
 
     <div class="relative h-32  -mt-6">
-        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 class="mb-4 ml-8 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
             Similar Products</h1>
         <div class="grid grid-cols-3 md:grid-cols-6 gap-96">
             <?php

@@ -43,7 +43,7 @@ require("connection.php");
             parse_str($_SERVER['QUERY_STRING'], $queries);
             $resultsPerPage = 6;
 
-            $sql = "Select * from `products`";
+            $sql = "Select * from `products` where popular_product IN (1)";
             $result = mysqli_query($con, $sql);
             $numOfResults = mysqli_num_rows($result);
             $row = mysqli_fetch_assoc($result);
@@ -79,9 +79,9 @@ require("connection.php");
                                 src=' . $photo . '>
                                 <div class="font-mono text-lg">' . $name . '</div>
                                 <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600"><a href="update.php? updateid=' . $id . ' " class="text-gray-100 text-decoration-none">Update</a></button>
-            <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-red-600 text-white hover:bg-red-700"><a href="delete.php? deleteid=' . $id . ' " class="text-light text-decoration-none">Delete</a></button>
-            <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600"><a href="display.php? updateid=' . $id . ' " class="text-gray-100 text-decoration-none">View</a></button>
-                       </div> ';
+                                <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-red-600 text-white hover:bg-red-700"><a href="delete.php? deleteid=' . $id . ' " class="text-light text-decoration-none">Delete</a></button>
+                                <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600"><a href="display.php? updateid=' . $id . ' " class="text-gray-100 text-decoration-none">View</a></button>
+                        </div> ';
                 }
             }
             ?>
