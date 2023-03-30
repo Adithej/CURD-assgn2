@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
               <label for="disabledTextInput" class="form-label">Image url</label>
               <input type="text" id="disabledTextInput" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" placeholder="Image" name="photo" value=<?php echo $photo; ?>>
             </div>
-            <button type="submit" class="w-full inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-black bg-blue hover:bg-blue-600" name="submit">Update</button>
+            <button type="submit" class="w-full mb-4 inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-black bg-blue hover:bg-blue-600" name="submit">Update</button>
           </fieldset>
         </form>
       </div>
