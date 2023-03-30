@@ -23,7 +23,7 @@ require("connection.php");
     </script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
     <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
-    <title>Crud dispay</title>
+    <title>Crud display</title>
 </head>
 
 <body>
